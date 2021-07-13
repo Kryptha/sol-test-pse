@@ -1,0 +1,3 @@
+_KEY=bd5f9db2abmsh2a2242bbb021c96p1729ddjsn5856cc35375e
+SKYSCANNER_URL=skyscanner-skyscanner-flight-search-v1.p.rapidapi.com
+

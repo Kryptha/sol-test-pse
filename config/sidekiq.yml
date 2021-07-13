@@ -1,0 +1,7 @@
+:schedule:
+  load_data:
+    cron: '0 0 * * * *'   # Runs once per hour
+    class: LoadDataJob
+  build_best_route:
+    cron: '15 5-22/4 * * *' # At minute 15 past every 4th hour from 5 through 22.
+    class: BuildCheapRoute

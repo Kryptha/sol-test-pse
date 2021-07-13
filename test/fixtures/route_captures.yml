@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payload: 
+  from: MyString
+  to: MyString
+  aasm_state: MyString
+
+two:
+  payload: 
+  from: MyString
+  to: MyString
+  aasm_state: MyString
