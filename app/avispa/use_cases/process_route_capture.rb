@@ -14,20 +14,29 @@ module UseCases
       @carriers = @payload[:carriers].map { |x| [x[:carrier_id], x[:name]] }.to_h
       @places = @payload[:places].map { |p| [p[:place_id], p[:skyscanner_code]] }.to_h
       @quotes = @payload[:quotes]
+      
     end
 
     def run
       @quotes.each do |quote|
         quote => { min_price: price,
                    outbound_leg: {carrier_ids:, origin_id:, destination_id:, departure_date: departs_at } }
+                   
         carrier = @carriers[carrier_ids.first]
         from = @places[origin_id]
         to = @places[destination_id]
-
+        
+        
         @capture.route_options.create(from: from, to: to,
                                       airline_ref: carrier, price: price,
                                       departs_at: departs_at,
                                       raw_payload: quote)
+        
+                                      
+        #Delete routes created between 7 hours and 1 day ago                         
+        ::RouteOption.clean(7.hours)
+        
+        
       end
     end
   end

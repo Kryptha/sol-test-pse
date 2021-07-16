@@ -4,7 +4,7 @@ class CheapRoute < ApplicationRecord
     {
       type: :routes,
       id: "#{from}-#{to}",
-      attributes: { from: from, to: to, price: price, airline: airline, departs_at: departs_at }
+      attributes: { from: from, to: to, price: "USD " + price.ceil.to_s, airline: airline, departs_at: departs_at }
     }
   end
 end

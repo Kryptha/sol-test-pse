@@ -12,8 +12,14 @@ class RoutesController < ApplicationController
     render json: { data: routes.map(&:to_jsonapi) }
   end
 
+  def show_airline
+    @routes.where(departs_at: 1.week.ago...1.second.ago)
+    routes = @routes.where(**route_params.to_h)
+    render json: { data: routes.map(&:to_jsonapi) }
+  end
+
   def route_params
-    params.permit(:from, :to)
+    params.permit(:from, :to, :airline)
   end
 
   def set_routes

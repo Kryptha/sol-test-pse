@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get ':from', to: 'routes#show'
       get ':from/:to', to: 'routes#show'
+      get ':from/:to/:airline', to: 'routes#show_airline'
     end
   end
 end

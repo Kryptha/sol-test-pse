@@ -12,7 +12,7 @@ class RouteCapture < ApplicationRecord
     event :schedule do
       transitions from: :created, to: :scheduled
     end
-    #Ticket: Change from: created to 'from: :scheduled'
+    #Change from: created to 'from: :scheduled'
     event :process_start do
       transitions from: :scheduled, to: :processing
     end
